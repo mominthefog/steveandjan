@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Steve & Jan ~ February 22, 2026</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garabond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -549,6 +550,63 @@
       background: var(--cream);
     }
 
+    /* ---- Lawn Mower ---- */
+    .mower {
+      position: fixed;
+      bottom: 8px;
+      left: -60px;
+      z-index: 200;
+      font-size: 1.6rem;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .mower-guy {
+      display: inline-block;
+      transform: scaleX(-1);
+    }
+
+    .grass-trail {
+      position: fixed;
+      bottom: 6px;
+      pointer-events: none;
+      z-index: 199;
+      font-size: 0.6rem;
+      color: var(--sage-light);
+      opacity: 0;
+    }
+
+    /* ---- Confetti Button ---- */
+    .confetti-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 200;
+      background: var(--warm-white);
+      border: 1px solid var(--gold-light);
+      border-radius: 50px;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .confetti-btn:hover {
+      background: var(--gold);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .confetti-piece {
+      position: fixed;
+      pointer-events: none;
+      z-index: 300;
+      font-size: 1.2rem;
+    }
+
     /* ---- Animations ---- */
     .fade-in {
       opacity: 0;
@@ -864,6 +922,8 @@
     <div class="hearts fade-in">&hearts; &hearts; &hearts;</div>
   </section>
 
+  <button class="confetti-btn" id="confetti-btn">Celebrate!</button>
+
   <footer>
     Steve & Jan &middot; February 22, 2026
   </footer>
@@ -977,6 +1037,78 @@
     }
 
     setInterval(createPetal, 2500);
+
+    // ---- Lawn Mower Guy ----
+    function launchMower() {
+      const mower = document.createElement('div');
+      mower.classList.add('mower');
+      mower.innerHTML = '<span class="mower-guy">&#129489;</span>&#129692;';
+      document.body.appendChild(mower);
+
+      const duration = 12000 + Math.random() * 4000;
+      const screenWidth = window.innerWidth;
+
+      // Leave little grass clippings behind
+      let grassInterval = setInterval(() => {
+        const rect = mower.getBoundingClientRect();
+        const grass = document.createElement('div');
+        grass.classList.add('grass-trail');
+        grass.textContent = ',';
+        grass.style.left = (rect.left + 10) + 'px';
+        document.body.appendChild(grass);
+        grass.animate([
+          { opacity: 0.5, transform: 'translateY(0)' },
+          { opacity: 0, transform: 'translateY(6px)' }
+        ], { duration: 2000, easing: 'ease-out' }).onfinish = () => grass.remove();
+      }, 200);
+
+      mower.animate([
+        { left: '-60px' },
+        { left: (screenWidth + 60) + 'px' }
+      ], {
+        duration,
+        easing: 'linear'
+      }).onfinish = () => {
+        clearInterval(grassInterval);
+        mower.remove();
+      };
+    }
+
+    // First mower after 8 seconds, then every 45-90 seconds
+    setTimeout(launchMower, 8000);
+    setInterval(launchMower, 45000 + Math.random() * 45000);
+
+    // ---- Confetti ----
+    document.getElementById('confetti-btn').addEventListener('click', function() {
+      const pieces = ['&#10084;', '&#9829;', '&#10047;', '&#9733;', '&#127881;', '&#128141;'];
+      const colors = ['#c9a84c', '#8a9a7b', '#e8c4b8', '#e8d5a3', '#c5d1bc', '#d4878f'];
+
+      for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('confetti-piece');
+        piece.innerHTML = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-20px';
+        piece.style.color = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+        document.body.appendChild(piece);
+
+        const xDrift = (Math.random() - 0.5) * 200;
+        const spin = Math.random() * 720 - 360;
+        const duration = 2500 + Math.random() * 2000;
+        const delay = Math.random() * 400;
+
+        piece.animate([
+          { transform: `translateX(0) translateY(0) rotate(0deg)`, opacity: 1 },
+          { opacity: 1, offset: 0.7 },
+          { transform: `translateX(${xDrift}px) translateY(${window.innerHeight + 40}px) rotate(${spin}deg)`, opacity: 0 }
+        ], {
+          duration,
+          delay,
+          easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        }).onfinish = () => piece.remove();
+      }
+    });
   </script>
 
 </body>
