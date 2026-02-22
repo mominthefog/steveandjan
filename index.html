@@ -554,16 +554,15 @@
     .mower {
       position: fixed;
       bottom: 8px;
-      left: -60px;
+      left: -80px;
       z-index: 200;
-      font-size: 1.6rem;
       pointer-events: none;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
 
-    .mower-guy {
-      display: inline-block;
-      transform: scaleX(-1);
+    .mower img {
+      width: 60px;
+      height: auto;
     }
 
     .grass-trail {
@@ -1042,7 +1041,7 @@
     function launchMower() {
       const mower = document.createElement('div');
       mower.classList.add('mower');
-      mower.innerHTML = '<span class="mower-guy">&#129489;</span>&#129692;';
+      mower.innerHTML = '<img src="images/lawnmower.png" alt="Lawn mower">';
       document.body.appendChild(mower);
 
       const duration = 12000 + Math.random() * 4000;
