@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steve & Jan ~ February 22, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garabond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #faf8f4;
+      --warm-white: #fff9f0;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --sage: #8a9a7b;
+      --sage-light: #c5d1bc;
+      --charcoal: #3a3a3a;
+      --text: #4a4a4a;
+      --text-light: #7a7a7a;
+      --blush: #e8c4b8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ---- Hero Section ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        180deg,
+        var(--warm-white) 0%,
+        var(--cream) 100%
+      );
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200, 168, 76, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(138, 154, 123, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(2rem, 5vw, 5rem);
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      flex: 1;
+    }
+
+    .hero-photo {
+      width: clamp(220px, 28vw, 320px);
+      border-radius: 12px;
+      object-fit: cover;
+      border: 4px solid var(--warm-white);
+      box-shadow:
+        0 0 0 2px var(--gold-light),
+        0 20px 60px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 700px) {
+      .hero-inner {
+        flex-direction: column;
+      }
+
+      .hero-photo {
+        width: clamp(180px, 50vw, 250px);
+      }
+    }
+
+    .ornament {
+      color: var(--gold-light);
+      font-size: 2rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .names {
+      font-family: 'Cormorant Garabond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 10vw, 7rem);
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .names .amp {
+      display: block;
+      font-style: italic;
+      font-size: 0.5em;
+      color: var(--gold);
+      margin: -0.2em 0;
+    }
+
+    .wedding-date {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 1rem;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garabond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: var(--sage);
+      margin-top: 1.5rem;
+      font-weight: 400;
+    }
+
+    /* ---- Countdown ---- */
+    .countdown-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--warm-white);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-number {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    .countdown-message {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* ---- Sections ---- */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garabond', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      text-align: center;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-light);
+      margin: 0 auto 3rem;
+    }
+
+    /* ---- Love Story ---- */
+    .story {
+      background: var(--cream);
+    }
+
+    .story-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .story-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+
+    .story-text em {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.25em;
+      color: var(--sage);
+      font-style: italic;
+    }
+
+    /* ---- Timeline ---- */
+    .timeline-section {
+      background: var(--warm-white);
+    }
+
+    .timeline {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--gold-light);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      text-align: left;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--warm-white), 0 0 0 5px var(--gold-light);
+    }
+
+    .timeline-content {
+      width: 45%;
+      padding: 0 1.5rem;
+    }
+
+    .timeline-year {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .timeline-event {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    /* ---- Celebration ---- */
+    .celebration {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .celebration-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .celebration-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .celebration-text {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-style: italic;
+      color: var(--sage);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .detail-cards {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .detail-card {
+      background: var(--warm-white);
+      border: 1px solid var(--gold-light);
+      border-radius: 8px;
+      padding: 2rem 2.5rem;
+      min-width: 200px;
+      flex: 1;
+      max-width: 260px;
+    }
+
+    .detail-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .detail-card-title {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.3rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .detail-card-info {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ---- Memories ---- */
+    .memories {
+      background: var(--warm-white);
+    }
+
+    .memory-cards {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .memory-card {
+      background: var(--cream);
+      border: 1px solid var(--gold-light);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .memory-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .memory-card-location {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .memory-card-text {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .memory-card-detail {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Wedding Party ---- */
+    .wedding-party {
+      background: var(--cream);
+    }
+
+    .party-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .party-member {
+      padding: 1.5rem 1rem;
+    }
+
+    .party-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--warm-white);
+      border: 2px solid var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+    }
+
+    .party-name {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.2rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .party-role {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .party-relation {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .memory-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .party-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+
+    /* ---- Candle ---- */
+    .candle-section {
+      background: var(--warm-white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .candle-photo {
+      width: clamp(220px, 30vw, 340px);
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .candle-caption {
+      font-family: 'Cormorant Garabond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--sage);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ---- Quote / Footer ---- */
+    .closing {
+      background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .closing-quote {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-style: italic;
+      color: var(--charcoal);
+      max-width: 650px;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+    }
+
+    .closing-attribution {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.15em;
+    }
+
+    .hearts {
+      margin-top: 3rem;
+      color: var(--blush);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      opacity: 0.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+      background: var(--cream);
+    }
+
+    /* ---- Animations ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Floating petals ---- */
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      font-size: 1rem;
+    }
+
+    /* ---- Nav dots ---- */
+    .nav-dots {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .nav-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-dot {
+        left: 20px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(odd) {
+        flex-direction: row;
+        text-align: left;
+        padding-left: 50px;
+      }
+
+      .timeline-content {
+        width: 100%;
+        padding: 0;
+      }
+
+      .nav-dots {
+        display: none;
+      }
+
+      .detail-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav Dots -->
+  <nav class="nav-dots" aria-label="Page navigation">
+    <button class="nav-dot active" data-section="hero" aria-label="Top"></button>
+    <button class="nav-dot" data-section="countdown" aria-label="Countdown"></button>
+    <button class="nav-dot" data-section="story" aria-label="Our Story"></button>
+    <button class="nav-dot" data-section="timeline" aria-label="Timeline"></button>
+    <button class="nav-dot" data-section="memories" aria-label="Memories"></button>
+    <button class="nav-dot" data-section="celebration" aria-label="The Day"></button>
+    <button class="nav-dot" data-section="party" aria-label="Wedding Party"></button>
+    <button class="nav-dot" data-section="closing" aria-label="Closing"></button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <img src="images/SteveandJan2.jpeg" alt="Steve and Jan" class="hero-photo">
+      <div class="hero-content">
+        <div class="ornament">~ ~ ~</div>
+        <h1 class="names">
+          Steve
+          <span class="amp">&</span>
+          Jan
+        </h1>
+        <p class="wedding-date">Sunday, February 22, 2026</p>
+        <p class="tagline">After time itself whispered, &ldquo;Alright, it&rsquo;s your moment.&rdquo;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="countdown-section" id="countdown">
+    <div id="countdown-display" class="countdown">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="story" id="story">
+    <h2 class="section-title fade-in">Their Story</h2>
+    <p class="section-subtitle fade-in">A love 25 years in the making</p>
+    <div class="divider fade-in"></div>
+    <div class="story-container">
+      <p class="story-text fade-in">
+        It started around February 2002. Steve will tell you he chased Jan for twenty-some years &mdash; and that <em>she finally gave in.</em> The truth, of course, is that some things are simply meant to be.
+      </p>
+      <p class="story-text fade-in">
+        They set February 22nd as the date that started it all. Now, exactly twenty-five years later, they&rsquo;re getting married on that very same day &mdash; <em>because some dates are just written in the stars.</em>
+      </p>
+      <p class="story-text fade-in">
+        Most people assumed they were married already. And as Steve likes to point out, by common law they&rsquo;ve probably been married three times over. But now they&rsquo;re making it official &mdash; not because they need to, but because <em>a love this enduring deserves to be celebrated.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section" id="timeline">
+    <h2 class="section-title fade-in">The Journey</h2>
+    <p class="section-subtitle fade-in">Milestones along the way</p>
+    <div class="divider fade-in"></div>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2002</div>
+          <p class="timeline-event">Two paths cross around February 22nd &mdash; and everything changes</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">Mexico</div>
+          <p class="timeline-event">A long walk on the beach in San Jos&eacute; del Cabo &mdash; one of their earliest and most cherished memories</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">Paris</div>
+          <p class="timeline-event">A February walk from the Arc de Triomphe all the way to Notre-Dame &mdash; and a little shop along the way where Jan found her wedding dress</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">Feb 22, 2026</div>
+          <p class="timeline-event">On their anniversary, they say &ldquo;I do&rdquo; &mdash; because forever was always the plan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Favorite Memories -->
+  <section class="memories" id="memories">
+    <h2 class="section-title fade-in">Favorite Memories</h2>
+    <p class="section-subtitle fade-in">In Steve's words</p>
+    <div class="divider fade-in"></div>
+    <div class="memory-cards">
+      <div class="memory-card fade-in">
+        <div class="memory-card-location">San Jos&eacute; del Cabo, Mexico</div>
+        <p class="memory-card-text">
+          &ldquo;We were trying to go to the beach and we went for a long walk on the beach, which was kind of fun too down there.&rdquo;
+        </p>
+        <p class="memory-card-detail">
+          One of their earliest adventures together &mdash; sun, sand, and the beginning of a lifetime of travels side by side.
+        </p>
+      </div>
+      <div class="memory-card fade-in">
+        <div class="memory-card-location">Paris, France</div>
+        <p class="memory-card-text">
+          &ldquo;We walked from the Arc de Triomphe all the way down to Notre-Dame. Along that walk, we stopped into a shop and this is where she bought her dress &mdash; the one she&rsquo;s gonna wear in the wedding.&rdquo;
+        </p>
+        <p class="memory-card-detail">
+          A February stroll through Paris that, years later, would come full circle on their wedding day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Celebration Details -->
+  <section class="celebration" id="celebration">
+    <h2 class="section-title fade-in">The Celebration</h2>
+    <p class="section-subtitle fade-in">Joining hearts, officially</p>
+    <div class="divider fade-in"></div>
+    <div class="celebration-content">
+      <p class="celebration-text fade-in">
+        On the exact anniversary of the day it all began, Steve and Jan are making it forever.
+      </p>
+      <div class="detail-cards fade-in">
+        <div class="detail-card">
+          <div class="detail-card-icon">&#128197;</div>
+          <div class="detail-card-title">The Date</div>
+          <div class="detail-card-info">
+            Sunday<br>
+            February 22, 2026
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon">&#128141;</div>
+          <div class="detail-card-title">The Anniversary</div>
+          <div class="detail-card-info">
+            Married on the same day<br>
+            their story began
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon">&#127758;</div>
+          <div class="detail-card-title">The Dress</div>
+          <div class="detail-card-info">
+            Found in a little shop<br>
+            on a Paris walk
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding Party -->
+  <section class="wedding-party" id="party">
+    <h2 class="section-title fade-in">The Wedding Party</h2>
+    <p class="section-subtitle fade-in">Standing beside them</p>
+    <div class="divider fade-in"></div>
+    <div class="party-grid fade-in">
+      <div class="party-member">
+        <div class="party-icon">&#9829;</div>
+        <div class="party-name">Jeff</div>
+        <div class="party-role">Best Man</div>
+        <div class="party-relation">Steve&rsquo;s Brother</div>
+      </div>
+      <div class="party-member">
+        <div class="party-icon">&#9829;</div>
+        <div class="party-name">Suzanne</div>
+        <div class="party-role">Matron of Honor</div>
+        <div class="party-relation">Jan&rsquo;s Daughter</div>
+      </div>
+      <div class="party-member">
+        <div class="party-icon">&#10047;</div>
+        <div class="party-name">Kingsley</div>
+        <div class="party-role">Flower Girl</div>
+        <div class="party-relation">Jan&rsquo;s Granddaughter</div>
+      </div>
+      <div class="party-member">
+        <div class="party-icon">&#9734;</div>
+        <div class="party-name">Cassius</div>
+        <div class="party-role">Ring Bearer</div>
+        <div class="party-relation">Steve&rsquo;s Grandson</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Candle -->
+  <section class="candle-section fade-in">
+    <img src="images/candle.jpeg" alt="Wedding candle with Eiffel Tower vase" class="candle-photo">
+    <p class="candle-caption">
+      Their wedding candle &mdash; a Paris rose, a berry wreath, and the words that brought them here:<br>
+      &ldquo;After time itself whispered, &lsquo;Alright, it&rsquo;s your moment.&rsquo;&rdquo;
+    </p>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing" id="closing">
+    <p class="closing-quote fade-in">
+      &ldquo;Whatever our souls are made of, his and hers are the same.&rdquo;
+    </p>
+    <p class="closing-attribution fade-in">&mdash; adapted from Emily Bront&euml;</p>
+    <div class="hearts fade-in">&hearts; &hearts; &hearts;</div>
+  </section>
+
+  <footer>
+    Steve & Jan &middot; February 22, 2026
+  </footer>
+
+  <script>
+    // ---- Countdown ----
+    function updateCountdown() {
+      const wedding = new Date('2026-02-22T00:00:00');
+      const now = new Date();
+      const diff = wedding - now;
+      const display = document.getElementById('countdown-display');
+
+      if (diff <= 0) {
+        display.innerHTML = '<p class="countdown-message">Today is the day!</p>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      if (days === 0 && hours === 0 && minutes === 0) {
+        display.innerHTML = '<p class="countdown-message">Any moment now&hellip;</p>';
+        return;
+      }
+
+      let html = '';
+      if (days > 0) {
+        html += `<div class="countdown-item">
+          <span class="countdown-number">${days}</span>
+          <span class="countdown-label">${days === 1 ? 'Day' : 'Days'}</span>
+        </div>`;
+      }
+      html += `<div class="countdown-item">
+        <span class="countdown-number">${hours}</span>
+        <span class="countdown-label">${hours === 1 ? 'Hour' : 'Hours'}</span>
+      </div>`;
+      html += `<div class="countdown-item">
+        <span class="countdown-number">${minutes}</span>
+        <span class="countdown-label">${minutes === 1 ? 'Minute' : 'Minutes'}</span>
+      </div>`;
+      html += `<div class="countdown-item">
+        <span class="countdown-number">${seconds}</span>
+        <span class="countdown-label">${seconds === 1 ? 'Second' : 'Seconds'}</span>
+      </div>`;
+
+      display.innerHTML = html;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ---- Scroll fade-in ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ---- Nav dots ----
+    const sections = document.querySelectorAll('section');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.section);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          dots.forEach(d => d.classList.remove('active'));
+          const active = document.querySelector(`.nav-dot[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ---- Floating petals ----
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.textContent = ['&hearts;', '&#10047;', '&#8226;'][Math.floor(Math.random() * 3)];
+      petal.innerHTML = ['&#10047;', '&#8226;', '&#183;'][Math.floor(Math.random() * 3)];
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.fontSize = (Math.random() * 0.8 + 0.5) + 'rem';
+      petal.style.color = ['#e8d5a3', '#c5d1bc', '#e8c4b8'][Math.floor(Math.random() * 3)];
+      document.body.appendChild(petal);
+
+      const duration = Math.random() * 6000 + 6000;
+      const sway = Math.random() * 100 - 50;
+
+      petal.animate([
+        { transform: `translateY(-20px) translateX(0) rotate(0deg)`, opacity: 0 },
+        { opacity: 0.4, offset: 0.1 },
+        { opacity: 0.4, offset: 0.8 },
+        { transform: `translateY(100vh) translateX(${sway}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+      ], {
+        duration,
+        easing: 'ease-in-out'
+      }).onfinish = () => petal.remove();
+    }
+
+    setInterval(createPetal, 2500);
+  </script>
+
+</body>
+</html>
