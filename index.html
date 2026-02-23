@@ -486,6 +486,83 @@
       }
     }
 
+    /* ---- Best Man's Toast ---- */
+    .toast-section {
+      background: var(--warm-white);
+    }
+
+    .toast-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .toast-card {
+      background: var(--cream);
+      border: 1px solid var(--gold-light);
+      border-radius: 10px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      position: relative;
+    }
+
+    .toast-card::before {
+      content: '\201C';
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 5rem;
+      color: var(--gold-light);
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      line-height: 1;
+      opacity: 0.5;
+    }
+
+    .toast-text {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .toast-text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .toast-text em {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.2em;
+      color: var(--sage);
+      font-style: italic;
+    }
+
+    .toast-text.toast-closing {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--charcoal);
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    .toast-attribution {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .toast-attribution-name {
+      font-family: 'Cormorant Garabond', serif;
+      font-size: 1.4rem;
+      color: var(--charcoal);
+    }
+
+    .toast-attribution-role {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+
     /* ---- Candle ---- */
     .candle-section {
       background: var(--warm-white);
@@ -698,6 +775,7 @@
     <button class="nav-dot" data-section="memories" aria-label="Memories"></button>
     <button class="nav-dot" data-section="celebration" aria-label="The Day"></button>
     <button class="nav-dot" data-section="party" aria-label="Wedding Party"></button>
+    <button class="nav-dot" data-section="toast" aria-label="Best Man's Toast"></button>
     <button class="nav-dot" data-section="closing" aria-label="Closing"></button>
   </nav>
 
@@ -899,6 +977,45 @@
         <div class="party-name">Cassius</div>
         <div class="party-role">Ring Bearer</div>
         <div class="party-relation">Steve&rsquo;s Grandson</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Man's Toast -->
+  <section class="toast-section" id="toast">
+    <h2 class="section-title fade-in">A Toast from the Best Man</h2>
+    <p class="section-subtitle fade-in">Words from Jeff Paulson, Steve&rsquo;s Brother</p>
+    <div class="divider fade-in"></div>
+    <div class="toast-container">
+      <div class="toast-card fade-in">
+        <p class="toast-text">
+          Good Afternoon! It is SUCH a privilege to have the opportunity to say a few words about my favorite older brother, Steve, and his bride, Jan.
+        </p>
+        <p class="toast-text">
+          Steve and Jan&rsquo;s life path hasn&rsquo;t always been straight. Both of their lives have had detours, surprises, and lessons. And for the past 25 years &mdash; a second chance.
+        </p>
+        <p class="toast-text">
+          By the time we reached this stage in our lives, we know who we are. We know what truly matters. We know that <em>love isn&rsquo;t about perfection. It&rsquo;s about partnership.</em> It&rsquo;s about kindness on ordinary days. It&rsquo;s about showing up &mdash; bothering for each other, even when things aren&rsquo;t easy.
+        </p>
+        <p class="toast-text">
+          We have all witnessed how Jan and Steve show up, not only for each other, but for each other&rsquo;s families. And as we are witnessing today &mdash; their families showing up for them.
+        </p>
+        <p class="toast-text">
+          Caser, Shaker, Suz and Jeffrey, thank you for embracing my brother Steve. Your long time support of their relationship has helped solidify their union. Amanda and Deidre, since the day you were born, you have been the apple of your father&rsquo;s eye. And the two of you are his legacy. It&rsquo;s wonderful that you are both here today to support your father and Jan, and celebrate this important moment.
+        </p>
+        <p class="toast-text">
+          The love between Steve and Jan isn&rsquo;t young love. <em>It&rsquo;s better.</em> It is love that has been tested and measured by life. Love that understands the value of time and commitment. Love that chooses every day to walk forward, together &mdash; Forever!
+        </p>
+        <p class="toast-text">
+          Jan, thank you for loving my brother in the many ways &mdash; both big and small &mdash; that you do. It is beyond feelings and emotions. Steve, I have never seen you more at ease and at peace. And I am very happy for both of you.
+        </p>
+        <p class="toast-text toast-closing">
+          So please &mdash; let us raise our glasses to companionship, to laughter, to health, family and friendships. And most importantly &mdash; today, to Jan and Steve. Cheers.
+        </p>
+      </div>
+      <div class="toast-attribution fade-in">
+        <div class="toast-attribution-name">Jeff Paulson</div>
+        <div class="toast-attribution-role">Best Man &middot; Steve&rsquo;s Brother</div>
       </div>
     </div>
   </section>
